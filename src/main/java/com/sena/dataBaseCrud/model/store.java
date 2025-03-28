@@ -7,30 +7,35 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
+          
 
-@Entity(name = "rol")
+@Entity(name = "store")
 @Getter
 @Setter
-public class rol {
+public class store {
     @Id
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     @Column(name ="id", length = 10, nullable = false)
-    private int id;    
-
+    private int id;
     @Column(name = "name", length = 225, nullable = false)
     private String name;
+    @Column(name ="address", length= 50, nullable=false)
+    private String address;
+    @Column(name ="logo", length = 500, nullable =true)
+    private String logo;
+    @Column(name ="state", length = 1, nullable =false)
+    private boolean state;
 
-    @Column(name = "description", length = 1000, nullable = false)
-    private String description;
-
-    public rol(){
+    public store(){
     }
 
-    public rol(int id, String name, String description){
+    public store(int id, String name, String address, String logo, boolean state){
         this.id = id;
         this.name = name;
-        this.description = description;
+        this.address = address;
+        this.logo = logo;
+        this.state = state;
     }
 }
